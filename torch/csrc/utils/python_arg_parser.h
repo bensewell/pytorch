@@ -409,7 +409,7 @@ inline std::vector<int64_t> PythonArgs::intlistWithDefault(int i, std::vector<in
     } catch (const std::exception &e) {
       throw TypeError("%s(): argument '%s' must be %s, but found element of type %s at pos %ld",
           signature.name.c_str(), signature.params[i].name.c_str(),
-          signature.params[i].type_name().c_str(), Py_TYPE(obj)->tp_name, idx + 1);
+          signature.params[i].type_name().c_str(), Py_TYPE(obj)->tp_name, (long int)(idx + 1));
     }
   }
   return res;
@@ -435,7 +435,7 @@ inline std::vector<double> PythonArgs::getDoublelist(int i) {
     } catch (const std::exception &e) {
       throw TypeError("%s(): argument '%s' must be %s, but found element of type %s at pos %ld",
           signature.name.c_str(), signature.params[i].name.c_str(),
-          signature.params[i].type_name().c_str(), Py_TYPE(obj)->tp_name, idx + 1);
+          signature.params[i].type_name().c_str(), Py_TYPE(obj)->tp_name, (long int)(idx + 1));
     }
   }
   return res;

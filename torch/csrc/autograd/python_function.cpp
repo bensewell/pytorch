@@ -370,7 +370,7 @@ static void _save_variables(const std::shared_ptr<PyNode>& cdata_ptr, THPFunctio
     } else {
       throw torch::TypeError(
           "save_for_backward can only save variables, but argument %ld is of "
-          "type %s", i, Py_TYPE(obj)->tp_name);
+          "type %s", (long int)i, (char *)(Py_TYPE(obj)->tp_name));
     }
   }
   // Free .to_save
